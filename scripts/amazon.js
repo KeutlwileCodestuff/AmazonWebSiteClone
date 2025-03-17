@@ -659,8 +659,10 @@ const products = [
   }
 ];
 
+let productHtml = '';
+
 products.forEach((product) => {
-    let html = `
+    productHtml += `
         <div class="product-container">
           <div class="product-image-container">
             <img class="product-image"
@@ -673,14 +675,14 @@ products.forEach((product) => {
 
           <div class="product-rating-container">
             <img class="product-rating-stars"
-              src="images/ratings/rating-${product.stars * 10}.png">
+              src="images/ratings/rating-${product.rating.stars * 10}.png">
             <div class="product-rating-count link-primary">
-              ${product.numbers}
+              ${product.rating.count}
             </div>
           </div>
 
           <div class="product-price">
-            $${(product.priceInCents / 100).toFixed(2)}
+            $${(product.priceCents / 100).toFixed(2)}
           </div>
 
           <div class="product-quantity-container">
@@ -711,3 +713,6 @@ products.forEach((product) => {
         </div>
     `;
 });
+
+document.querySelector('.products-grid').innerHTML = productHtml;
+console.log('owrking');
