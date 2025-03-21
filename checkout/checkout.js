@@ -1,41 +1,48 @@
 import { cart } from "../cart/cart";
+import { products } from "../data/products";
 
 let cartHtml = '';
 
 
 cart.forEach((item) =>{
-    
-});
-cart.forEach((item) =>{
-    cartHtml += `
-    
-<div class="cart-item-container">
-    <div class="delivery-date">
-    Delivery date: Wednesday, June 15
-    </div>
-    <div class="cart-item-details-grid">
-    <img class="product-image"
-        src=" ${item.image} ">
+    let machingItem;
+    products.forEach((product) =>{
+        if(item.id === product.id){
+            machingItem = product;
+        };
+    });
 
-    <div class="cart-item-details">
-        <div class="product-name">
-        ${item.name}
+    console.log(machingItem);
+
+
+    cartHtml +=  `
+    <div class="cart-item-container">
+        <div class="delivery-date">
+        Delivery date: Wednesday, June 15
         </div>
-        <div class="product-price">
-        ${item.price}
+        <div class="cart-item-details-grid">
+        <img class="product-image"
+            src=" ${machingItem.image} ">
+
+        <div class="cart-item-details">
+            <div class="product-name">
+            ${machingItem.name}
+            </div>
+            <div class="product-price">
+            ${machingItem.price}
+            </div>
+            <div class="product-quantity">
+            <span>
+                Quantity: <span class="quantity-label">${machingItem.quantity}</span>
+            </span>
+            <span class="update-quantity-link link-primary">
+                Update
+            </span>
+            <span class="delete-quantity-link link-primary">
+                Delete
+            </span>
+            </div>
         </div>
-        <div class="product-quantity">
-        <span>
-            Quantity: <span class="quantity-label">${item.quantity}</span>
-        </span>
-        <span class="update-quantity-link link-primary">
-            Update
-        </span>
-        <span class="delete-quantity-link link-primary">
-            Delete
-        </span>
-        </div>
-    </div>
 
     <div class="delivery-options">
         <div class="delivery-options-title">
@@ -80,6 +87,8 @@ cart.forEach((item) =>{
         </div>
     </div>
     </div>
-    </div>
+    </div>   
     `;
 });
+
+document.querySelector('.order-summary').innerHTML = cartHtml;

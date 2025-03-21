@@ -1,6 +1,5 @@
 import {cart} from '../cart/cart.js';
 import {products} from '../data/products.js';
-import * as checkout from '../checkout/checkout.js';
 
 let productHtml = '';
 
@@ -65,7 +64,6 @@ document.querySelectorAll('.js-add-to-cart-btn').forEach((button)=>{
     button.addEventListener('click',()=>{
       AddToCartButton(button);
       CartQuantity();
-      checkout.ItemInCartHtml();
       console.log(cart);
     });
 });
