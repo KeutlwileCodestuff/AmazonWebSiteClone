@@ -1,4 +1,4 @@
-
+import {cart} from '../cart/cart.js';
 
 let productHtml = '';
 
@@ -58,7 +58,7 @@ products.forEach((product) => {
 });
 
 document.querySelector('.products-grid').innerHTML = productHtml;
-const cart = [];
+// const cart = [];
 document.querySelectorAll('.js-add-to-cart-btn').forEach((button)=>{
     button.addEventListener('click',()=>{
       let productIdInCart = button.dataset.productId;
@@ -94,3 +94,5 @@ document.querySelectorAll('.js-add-to-cart-btn').forEach((button)=>{
 
   });
 });
+
+
