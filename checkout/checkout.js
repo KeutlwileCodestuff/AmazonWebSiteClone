@@ -1,4 +1,4 @@
-import { cart } from "../cart/cart.js";
+import { cart , DeleteFromCart} from "../cart/cart.js";
 import { products } from "../data/products.js";
 let cartHtml = '';
 
@@ -93,24 +93,10 @@ cart.forEach((item) => {
 });
 document.querySelector('.order-summary').innerHTML = cartHtml;
 
-
-
-function ClickDeleteLink(itemId){
-  let itemIndex = -1;
-  cart.forEach((item) => {
-    itemIndex ++ ;
-    if(item.id === itemId){
-      cart.splice(itemIndex , 1);
-    };
-  });
-  console.log(`cart len after ${cart}`);
-
-};
-
 document.querySelectorAll('.delete-quantity-link').forEach((deleteLink)=>{
   deleteLink.addEventListener('click', () =>{
     let itemId = deleteLink.dataset.itemId;
-    ClickDeleteLink(itemId);
+    DeleteFromCart(itemId);
     document.querySelector(`.remove-from-page-${itemId}`).remove();
   });
 });

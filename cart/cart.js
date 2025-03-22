@@ -17,3 +17,15 @@ export let cart = [
       }
 
 ];
+
+export function DeleteFromCart(itemId){
+  let itemIndex = -1;
+  cart.forEach((item) => {
+    itemIndex ++ ;
+    if(item.id === itemId){
+      cart.splice(itemIndex , 1);
+    };
+  });
+  console.log(`cart len after ${cart}`);
+
+};
