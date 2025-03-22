@@ -1,4 +1,4 @@
-export const cart = [
+export let cart = [
 
     {
         id: "8c9c52b5-5a19-4bcb-a5d1-158a74287c53",
