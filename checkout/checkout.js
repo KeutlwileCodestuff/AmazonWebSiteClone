@@ -2,7 +2,9 @@ import { cart } from "../cart/cart.js";
 import { products } from "../data/products.js";
 let cartHtml = '';
 
-cart.forEach((item) => {
+
+function GenerateHtmlForCartItems(){
+  cart.forEach((item) => {
     let MatchingItem;
     
     products.forEach((product) => {
@@ -34,7 +36,8 @@ cart.forEach((item) => {
           <span class="update-quantity-link link-primary">
             Update
           </span>
-          <span class="delete-quantity-link link-primary">
+          <span class="delete-quantity-link link-primary"
+          data-item-id = "${MatchingItem.id}">
             Delete
           </span>
         </div>
@@ -90,6 +93,35 @@ cart.forEach((item) => {
     `;
 });
 document.querySelector('.order-summary').innerHTML = cartHtml;
+};
 
 
 
+function ClickDeleteLink(deleteLink){
+  let itemId = deleteLink.dataset.itemId;
+  let itemIndex = -1;
+  console.log(`cart len before ${cart}`);
+
+  cart.forEach((item) => {
+    itemIndex ++ ;
+    if(item.id === itemId){
+      cart.splice(itemIndex , 1);
+    };
+  });
+  console.log(`cart len after ${cart}`);
+
+};
+
+function clearCartHtml(){
+  cartHtml = '';
+};
+
+GenerateHtmlForCartItems();
+document.querySelectorAll('.delete-quantity-link').forEach((deleteLink)=>{
+  deleteLink.addEventListener('click', () =>{
+    console.log('1');
+    ClickDeleteLink(deleteLink);
+    clearCartHtml();
+    GenerateHtmlForCartItems();
+  });
+});
