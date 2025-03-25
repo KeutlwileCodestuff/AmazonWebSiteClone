@@ -1,4 +1,4 @@
-import {cart} from '../cart/cart.js';
+import {cart } from '../cart/cart.js';
 import {products} from '../data/products.js';
 
 let productHtml = '';
