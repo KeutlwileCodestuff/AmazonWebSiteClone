@@ -11,7 +11,7 @@ cart.forEach((item) => {
           MatchingItem = product;
       };
   });
-
+   
   cartHtml += `<div class="cart-item-container remove-from-page-${MatchingItem.id}">
   <div class="delivery-date">
     Delivery date: Tuesday, June 21

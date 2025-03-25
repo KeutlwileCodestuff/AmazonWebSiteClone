@@ -82,6 +82,7 @@ function CartQuantity(){
 function AddToCartButton(button){
   let productIdInCart = button.dataset.productId;
   let isItemRepeated;
+  // const cart = [];
 
   cart.forEach((item)=>{
     if(item.id === productIdInCart){
