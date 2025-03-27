@@ -1,7 +1,7 @@
 import { cart , DeleteFromCart} from "../cart/cart.js";
 import { products } from "../data/products.js";
+import * as time from "../scripts/utils/time.js";
 let cartHtml = '';
-
 
 cart.forEach((item) => {
   let MatchingItem;
@@ -14,7 +14,7 @@ cart.forEach((item) => {
    
   cartHtml += `<div class="cart-item-container remove-from-page-${MatchingItem.id}">
   <div class="delivery-date">
-    Delivery date: Tuesday, June 21
+    Delivery Date : date-here
   </div>
   
   <div class="cart-item-details-grid">
@@ -51,10 +51,10 @@ cart.forEach((item) => {
           class="delivery-option-input"
           name="delivery-option-${item.id }">
         <div>
-          <div class="delivery-option-date">
+          <div class="delivery-option-date free-shipping-option">
             Tuesday, June 21
           </div>
-          <div class="delivery-option-price">
+          <div class="delivery-option-price ">
             FREE Shipping
           </div>
         </div>
@@ -64,8 +64,8 @@ cart.forEach((item) => {
           class="delivery-option-input"
           name="delivery-option-${item.id }">
         <div>
-          <div class="delivery-option-date">
-            Wednesday, June 15
+          <div class="delivery-option-date delivery-3-days-after">
+          3 days after
           </div>
           <div class="delivery-option-price">
             $4.99 - Shipping
@@ -77,8 +77,7 @@ cart.forEach((item) => {
           class="delivery-option-input"
           name="delivery-option-${item.id }">
         <div>
-          <div class="delivery-option-date">
-            Monday, June 13
+          <div class="delivery-option-date delivery-today">
           </div>
           
           <div class="delivery-option-price">
@@ -100,3 +99,4 @@ document.querySelectorAll('.delete-quantity-link').forEach((deleteLink)=>{
     document.querySelector(`.remove-from-page-${itemId}`).remove();
   });
 });
+

@@ -1,5 +1,6 @@
 
 export let cart = JSON.parse(localStorage.getItem('cart'));
+
 if(! cart){
   cart = 
   [
@@ -64,7 +65,8 @@ export function AddToCartButton(button){
       name: button.dataset.productName,
       quantity:1
     });
-    SaveToLocalStorage();
   };
+  SaveToLocalStorage();
+
   
 }
