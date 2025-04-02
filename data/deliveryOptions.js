@@ -1,6 +1,5 @@
-import { deliveryDates } from "../scripts/utils/time";
 
-const DeliveryOptions = [
+export const DeliveryOptions = [
     {
         id: '1',
         deliveryDays: 7,
