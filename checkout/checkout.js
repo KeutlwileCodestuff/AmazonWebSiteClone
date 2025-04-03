@@ -97,65 +97,8 @@ cart.forEach((item) => {
   `;
 });
 
-function DeliveryOptionsHtml(item){
-  cart.forEach(() =>{
-    DeliveryOptions.forEach(() =>{
-      const today = time.today();
-      const Plus3days = time.deliveryDates(3);
-      const Plus7days = time.deliveryDates(7);
-
-      deliveryHtml += `
-          <div class="delivery-options-title">
-          Choose a delivery option:
-        </div>
-        <div class="delivery-option">
-          <input type="radio" checked
-            class="delivery-option-input"
-            name="delivery-option-${item.id }">
-          <div>
-            <div class="delivery-option-date free-shipping-option">
-              ${Plus7days}
-            </div>
-            <div class="delivery-option-price ">
-              FREE Shipping
-            </div>
-          </div>
-        </div>
-        <div class="delivery-option">
-          <input type="radio"
-            class="delivery-option-input"
-            name="delivery-option-${item.id }">
-          <div>
-            <div class="delivery-option-date delivery-3-days-after">
-            ${Plus3days}
-            </div>
-            <div class="delivery-option-price">
-              $4.99 - Shipping
-            </div>
-          </div>
-        </div>
-        <div class="delivery-option">
-          <input type="radio"
-            class="delivery-option-input"
-            name="delivery-option-${item.id }">
-          <div>
-            <div class="delivery-option-date delivery-today">
-            ${today}
-            </div>
-            
-            <div class="delivery-option-price">
-              $9.99 - Shipping
-            </div>
-          </div>
-        </div>
-      `;
-  });
-  })
-}
 
 document.querySelector('.order-summary').innerHTML = cartHtml;
-// document.querySelector('.delivery-options').innerHTML = deliveryHtml;
-
 
 document.querySelectorAll('.delete-quantity-link').forEach((deleteLink)=>{
   deleteLink.addEventListener('click', () =>{
@@ -165,3 +108,5 @@ document.querySelectorAll('.delete-quantity-link').forEach((deleteLink)=>{
   });
 });
 
+
+document.querySelector('.return-to-home-link').innerHTML =  `${cart.length} items`
