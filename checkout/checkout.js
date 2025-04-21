@@ -17,7 +17,7 @@ cart.forEach((item) => {
    
   cartHtml += `<div class="cart-item-container remove-from-page-${MatchingItem.id}">
   <div class="delivery-date">
-    Delivery Date : date-here
+    Delivery Date : ${time.today()}
   </div>
   
   <div class="cart-item-details-grid">
